@@ -30,6 +30,7 @@ class RecipesController < ApplicationController
       redirect_to @recipe, notice: "Successfully updated recipe!"
     else
       render 'edit'
+    end
   end
 
   def destroy
@@ -44,7 +45,9 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:title, :description, :image)
+    params.require(:recipe).permit(:title, :description, :image,
+                                    ingredients_attributes: [:id, :name, :_destroy],
+                                    directions_attributes: [:id, :step, :_destroy])
   end
 
 end
