@@ -1,1 +1,10 @@
-Need ImageMagick installed
+== README
+
+*directions based on mac os
+you will need imagemagick installed: brew install imagemagick
+
+clone repo
+run bundle install
+run rake db:migrate
+run rails server
+navigate browser to localhost:3000
